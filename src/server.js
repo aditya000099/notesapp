@@ -1,8 +1,10 @@
+// https://notesapp-o451.onrender.com
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const Note = require('./models/Note');
 const bodyparser = require('body-parser');
+
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
 
@@ -11,7 +13,7 @@ mongoose.connect(mongoDbPath).then(function ()
  {
    
     app.get('/', function(req, res) {
-    const response = { message : "API Works"};
+    const response = { statuscode:res.statusCode ,message : "API Works"};
     res.json(response);
     });
     const noteRouter = require('./routes/Note');
